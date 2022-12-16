@@ -2,7 +2,7 @@
 from pydantic import BaseModel
 from typing import Any, Callable, Dict, Union, AbstractSet, Mapping
 
-from mongo_id_field import MongoFieldInfo
+from .idfield import MongoFieldInfo
 
 IntStr = Union[int, str]
 DictStrAny = Dict[str, Any]

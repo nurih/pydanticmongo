@@ -1,8 +1,8 @@
 from typing import Any, Union, AbstractSet, Mapping
 from pydantic.fields import Undefined
-from mongo_id_field_info import MongoFieldInfo
+from .idfieldinfo import MongoFieldInfo
 
-from mongo_id_handler import StringAsObjectIdHandler
+from .idhandler import StringAsObjectIdHandler
 
 IntStr = Union[int, str]
 MappingIntStrAny = Mapping[IntStr, Any]
@@ -86,7 +86,7 @@ def MongoIdField(
     :param discriminator: only useful with a (discriminated a.k.a. tagged) `Union` of sub models with a common field.
       The `discriminator` is the name of this common field to shorten validation and improve generated schema
     :param repr: show this field in the representation  
-    :param id_handler: a handler to marshal nominal python id type into its bson counterpart   
+    :param id_handler: a handler to marshal nominal python id type into its bson counterpart. Defaults to `StringAsObjectIdHandler` which handles nominal str type field on the pydantic side, encoded into / decoded from ObjectId on the MongoDB side
     :param **extra: any additional keyword arguments will be added as is to the schema
     """
 

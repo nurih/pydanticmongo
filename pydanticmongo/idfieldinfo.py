@@ -1,7 +1,7 @@
 from typing import Any
 from pydantic.fields import FieldInfo
 
-from mongo_id_handler import StringAsObjectIdHandler
+from .idhandler import StringAsObjectIdHandler
 
 
 class MongoFieldInfo(FieldInfo):
